@@ -17,7 +17,7 @@
                          Table generator
                     </h1>
                     <hr>
-                    <form action="submit/submit_table.php" method="post" >
+                    <form action="submit/submit_table.php" method="post">
                          <table class="table table-bordered table-striped">
                               <tr>
                                    <td>
@@ -43,6 +43,36 @@
                                         <input type="radio" value="0" class="m-2" name="loop" id="loop" checked>While
                                         <input type="radio" value="1" class="m-2" name="loop" id="loop">For
                                         <input type="radio" value="2" class="m-2" name="loop" id="loop">Do while
+                                   </td>
+                              </tr>
+                              <tr>
+                                   <td>
+                                        Enter text for table
+                                   </td>
+                                   <td>
+                                        <input type="text" name="text">
+                                   </td>
+                              </tr>
+                              <tr>
+                                   <td>Select color </td>
+                                   <td>
+                                        <select name="color" id="">
+                                             <option value="0">Red</option>
+                                             <option value="1">Blue</option>
+                                             <option value="2">Green</option>
+                                        </select>
+                                        <!-- <input type="color" name="" id=""> -->
+                                   </td>
+                              </tr>
+                              <tr>
+                                   <td>
+                                        Select text color
+                                   </td>
+                                   <td>
+                                        <select name="text_color" id="">
+                                             <option value="0">White</option>
+                                             <option value="1">Black</option>
+                                        </select>
                                    </td>
                               </tr>
                               <tr>

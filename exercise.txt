@@ -17,3 +17,13 @@ $female_month = 3;
 $female_date = 28;
 
 Write a programe to create a simple intrest calc
+
+
+Create a simple div generator without using bootstrap take input from user 
+->height 
+->width 
+->number of divs 
+->background color
+->text 
+->text color 
+
