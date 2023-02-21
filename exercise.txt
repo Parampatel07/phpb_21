@@ -26,4 +26,3 @@ Create a simple div generator without using bootstrap take input from user
 ->background color
 ->text 
 ->text color 
-
