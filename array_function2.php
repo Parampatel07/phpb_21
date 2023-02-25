@@ -40,4 +40,4 @@ var_dump(array_change_key_case($myarray,CASE_UPPER));
 echo "<br>";
 echo array_search("jay",$stack);
 
-?>
+?> 
