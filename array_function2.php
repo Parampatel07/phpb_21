@@ -40,4 +40,11 @@ var_dump(array_change_key_case($myarray,CASE_UPPER));
 echo "<br>";
 echo array_search("jay",$stack);
 
+array_unshift($stack,"ruturaj","Devanshu");  
+var_dump($stack);
+
+
+$opt = rand(100000,999999);
+echo "this is otp $opt";
+$opt2 = rand(10,99) . rand(10,99) . rand(10,99)
 ?> 
