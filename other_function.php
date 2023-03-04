@@ -32,4 +32,14 @@ echo "<br>";
 echo "this is QUERY_STRING ".$_SERVER['QUERY_STRING'];
 echo "<br>";
 echo "this is DOCUMENT_ROOT ".$_SERVER['DOCUMENT_ROOT'];
+echo "<br>";
+echo "this is HTTP_USER_AGENT ".$_SERVER['HTTP_USER_AGENT'];
+echo "<br>";
+echo "this is REMOTE_ADDR ".$_SERVER['REMOTE_ADDR'];
+echo "<br>";
+echo "this is SCRIPT_FILENAME ".$_SERVER['SCRIPT_FILENAME'];
+echo "<br>";
+echo "this is SCRIPT_NAME ".$_SERVER['SCRIPT_NAME'];
+echo "<br>";
+echo "this is REQUEST_URI ".$_SERVER['REQUEST_URI'];
 ?>

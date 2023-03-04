@@ -50,22 +50,19 @@
                               <input type="submit" name="mysubmit" value="Submit">
                          </td>
                          <td>
-                         <input type="reset" />
+                              <input type="reset" />
                          </td>
                     </tr>
-                    <tr>
-                         <td>Your bmi is :</td>
-                         <td><?php 
-                         if(isset($_GET['bmi']) == true)
-                         {
-                              echo $_GET['bmi'];
-                         }
-                         else
-                         {
-                              echo "your answer here";
-                         }
-                         ?></td>
-                    </tr>
+                    <?php
+                    if (isset($_GET['bmi']) == true) {
+                    ?>
+                         <tr>
+                              <td>Your bmi is :</td>
+                              <td><?php echo $_REQUEST['bmi']; ?></td>
+                         </tr>
+                    <?php
+                    }
+                    ?>
                </table>
           </div>
      </form>
