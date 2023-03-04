@@ -11,5 +11,5 @@ $meter = $total_inch / 39.37;
 echo "<br>this is meter ".$meter;
 $bmi = $weight / ($meter * $meter);
 echo "<br>this is bmi ".$bmi;
-
+header("location:../bmicalc.php?bmi=$bmi");
 ?>

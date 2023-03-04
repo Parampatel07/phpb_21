@@ -53,6 +53,19 @@
                          <input type="reset" />
                          </td>
                     </tr>
+                    <tr>
+                         <td>Your bmi is :</td>
+                         <td><?php 
+                         if(isset($_GET['bmi']) == true)
+                         {
+                              echo $_GET['bmi'];
+                         }
+                         else
+                         {
+                              echo "your answer here";
+                         }
+                         ?></td>
+                    </tr>
                </table>
           </div>
      </form>
