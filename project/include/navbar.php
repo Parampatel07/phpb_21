@@ -42,8 +42,8 @@
                                    </div>
                                    <div class="col-3">
                                         <div class="mt-4 d-flex gap-2">
-                                             <button href="login.php" class="btn btn-outline-primary btn-lg py-4"><span class="p-4 ">Login in</span></button>
-                                             <button href="login.php" class="btn btn-outline-primary btn-lg py-4"><span class="p-4 ">Register</span></button>
+                                             <a href="login.php" class="btn btn-outline-primary btn-lg py-4"><span class="p-4 ">Login in</span></a>
+                                             <a href="register.php" class="btn btn-outline-primary btn-lg py-4"><span class="p-4 ">Register</span></a>
                                         </div>
                                    </div>
                               </div>

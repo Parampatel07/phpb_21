@@ -1,0 +1,40 @@
+HTTrack3.49-2+htsswf+htsjava launched on Mon, 23 Jan 2023 10:54:22 at https://laravel.spruko.com/zanex/ltr/datatable +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://laravel.spruko.com/zanex/ltr/datatable -O1 "G:\httrack\education_python_theme" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+11:01:56	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/images/about4.jpg (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:01:56	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/images/construction.jpg (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:03	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/fonts/feather/feather-webfont.eot?t=1501841394106 (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:03	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/fonts/feather/feather-webfont.woff?t=1501841394106 (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:03	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/fonts/feather/feather-webfont.ttf?t=1501841394106 (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:03	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/fonts/feather/feather-webfont.svg?t=1501841394106 (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:03	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/fonts/glyphicons-halflings-regular.eot (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:03	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/fonts/glyphicons-halflings-regular.eot? (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:03	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/fonts/glyphicons-halflings-regular.woff2 (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:03	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/fonts/glyphicons-halflings-regular.woff (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:03	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/fonts/glyphicons-halflings-regular.ttf (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:03	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/fonts/glyphicons-halflings-regular.svg (from https://laravel.spruko.com/zanex/ltr/assets/css/style.css)
+11:02:51	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/switcher/img/leimage.png (from https://laravel.spruko.com/zanex/ltr/assets/switcher/demo.css)
+11:02:59	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/images/users/41.jpg (from https://laravel.spruko.com/zanex/ltr/headers)
+11:03:10	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/forgot (from https://laravel.spruko.com/zanex/ltr/lockscreen)
+11:03:10	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/iconfonts/materialdesignicons/fonts/materialdesignicons/materialdesignicons-webfont.woff?v=2.0.46 (from https://laravel.spruko.com/zanex/ltr/assets/iconfonts/materialdesignicons/materialdesignicons.css)
+11:03:10	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/iconfonts/materialdesignicons/fonts/materialdesignicons/materialdesignicons-webfont.ttf?v=2.0.46 (from https://laravel.spruko.com/zanex/ltr/assets/iconfonts/materialdesignicons/materialdesignicons.css)
+11:03:10	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/iconfonts/materialdesignicons/fonts/materialdesignicons/materialdesignicons-webfont.svg?v=2.0.46 (from https://laravel.spruko.com/zanex/ltr/assets/iconfonts/materialdesignicons/materialdesignicons.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/iconfonts/simple-line-icons/fonts/simple-line-icons/Simple-Line-Icons.eot?v=2.4.0 (from https://laravel.spruko.com/zanex/ltr/assets/iconfonts/simple-line-icons/simple-line-icons.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/iconfonts/simple-line-icons/fonts/simple-line-icons/Simple-Line-Icons.svg?v=2.4.0 (from https://laravel.spruko.com/zanex/ltr/assets/iconfonts/simple-line-icons/simple-line-icons.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/plugins/iconfonts/remixicon/fonts/remixicon.svg (from https://laravel.spruko.com/zanex/ltr/assets/plugins/iconfonts/remixicon/remixicon.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/plugins/img/vimeo-play.png (from https://laravel.spruko.com/zanex/ltr/assets/plugins/gallery/gallery.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/plugins/img/video-play.png (from https://laravel.spruko.com/zanex/ltr/assets/plugins/gallery/gallery.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/plugins/img/youtube-play.png (from https://laravel.spruko.com/zanex/ltr/assets/plugins/gallery/gallery.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/plugins/img/loading.gif (from https://laravel.spruko.com/zanex/ltr/assets/plugins/gallery/gallery.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/plugins/jQuerytransfer/font/iconfont.eot?t=1519785387995 (from https://laravel.spruko.com/zanex/ltr/assets/plugins/jQuerytransfer/icon_font/icon_font.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/plugins/jQuerytransfer/font/iconfont.ttf?t=1519785387995 (from https://laravel.spruko.com/zanex/ltr/assets/plugins/jQuerytransfer/icon_font/icon_font.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/plugins/jQuerytransfer/font/iconfont.svg?t=1519785387995 (from https://laravel.spruko.com/zanex/ltr/assets/plugins/jQuerytransfer/icon_font/icon_font.css)
+11:03:11	Error: 	"Not Found" (404) at link https://laravel.spruko.com/zanex/ltr/assets/plugins/forn-wizard/img/bg.jpg (from https://laravel.spruko.com/zanex/ltr/assets/plugins/forn-wizard/css/demo.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 8 minutes 49 seconds : 970 links scanned, 940 files written (43137684 bytes overall) [36608042 bytes received at 69202 bytes/sec], 8047572 bytes transferred using HTTP compression in 134 files, ratio 12%, 13.2 requests per connection
+(29 errors, 0 warnings, 0 messages)
