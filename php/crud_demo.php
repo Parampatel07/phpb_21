@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("database/connection.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -10,9 +11,7 @@ session_start();
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 </head>
-
 <body>
-
      <div class="container mt-5">
           <div class="row">
                <?php
@@ -76,43 +75,47 @@ session_start();
                                         </tr>
                                    </thead>
                                    <tbody>
+                                        <?php
+                                        $sql = "select * from employee";
+                                        $statement = $db->prepare($sql);
+                                        $statement->setFetchMode(PDO::FETCH_ASSOC);
+                                        $statement->execute();
+                                        $table = $statement->fetchAll();
+                                        // var_dump($table);
+                                        // var_dump($value);
+                                        foreach($table as $value)
+                                        {
+                                        ?>
                                         <tr>
-                                             <td>Tiger Nixon</td>
-                                             <td>System Architect</td>
-                                             <td>Edinburgh</td>
-                                             <td>61</td>
+                                             <td><?php echo $value['name'];  ?></td>
+                                             <td><?php echo $value['email'];?></td>
+                                             <td><?php 
+                                             if($value['gender']==0)
+                                             {
+                                                  echo "Female";
+                                             }
+                                             else
+                                             {
+                                                  echo "Male";
+                                             }
+                                             ?></td>
+                                             <td><?php 
+                                             echo date("d-m-Y",strtotime($value['doj']));
+                                             ?></td>
                                              <td>
-                                                  <a href=""> <img src="images/edit.png" style="height:40px;" alt=""> </a>
-                                                  <a href=""> <img src="images/delete.png" style="height:40px;" alt=""> </a>
+                                                  <a href="edit_employee.php?id=<?php echo $value['id'] ?>"> <img src="images/edit.png" style="height:40px;" alt=""> </a>
+                                                  <a href="delete_employee.php?id=<?php echo $value['id']; ?>"> <img src="images/delete.png" style="height:40px;" alt=""> </a>
                                              </td>
                                         </tr>
-                                        <tr>
-                                             <td>Garrett Winters</td>
-                                             <td>Accountant</td>
-                                             <td>Tokyo</td>
-                                             <td>63</td>
-                                             <td>
-                                                  <a href=""> <img src="images/edit.png" style="height:40px;" alt=""> </a>
-                                                  <a href=""> <img src="images/delete.png" style="height:40px;" alt=""> </a>
-                                             </td>
-                                        </tr>
-                                        <tr>
-                                             <td>Ashton Cox</td>
-                                             <td>Junior Technical Author</td>
-                                             <td>San Francisco</td>
-                                             <td>66</td>
-                                             <td>
-                                                  <a href=""> <img src="images/edit.png" style="height:40px;" alt=""> </a>
-                                                  <a href=""> <img src="images/delete.png" style="height:40px;" alt=""> </a>
-                                             </td>
-                                        </tr>
+                                        <?php
+                                        }
+                                        ?>
                               </table>
                          </div>
                     </div>
                </div>
           </div>
      </div>
-
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
      <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -122,5 +125,4 @@ session_start();
           });
      </script>
 </body>
-
 </html>

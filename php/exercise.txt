@@ -1,1 +1,13 @@
 write a php code that display 6 digit otp number
+
+
+Crud operation using 
+shop table
+-------------------------
+id
+name
+address
+status (0=open,1=close)
+city
+contact number
+opening date
