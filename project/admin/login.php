@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("include/css.php");
 ?>
 	</head>
@@ -19,19 +20,22 @@ require_once("include/css.php");
 					<div class="container-login100">
 						<div class="wrap-login100 p-0">
 							<div class="card-body">
-								<form class="login100-form validate-form">
+								<form class="login100-form validate-form" method="post" action="submit/verfiy_login.php">
 									<span class="login100-form-title">
 										Login
 									</span>
+									<?php
+require_once("include/message.php");
+									?>
 									<div class="wrap-input100 validate-input" data-bs-validate = "Valid email is required: ex@abc.xyz">
-										<input class="input100" type="text" name="email" placeholder="Email">
+										<input class="input100" type="email" name="email" placeholder="Email" required>
 										<span class="focus-input100"></span>
 										<span class="symbol-input100">
 											<i class="zmdi zmdi-email" aria-hidden="true"></i>
 										</span>
 									</div>
 									<div class="wrap-input100 validate-input" data-bs-validate = "Password is required">
-										<input class="input100" type="password" name="pass" placeholder="Password">
+										<input class="input100" type="password" name="password" placeholder="Password" required>
 										<span class="focus-input100"></span>
 										<span class="symbol-input100">
 											<i class="zmdi zmdi-lock" aria-hidden="true"></i>
@@ -41,9 +45,9 @@ require_once("include/css.php");
 										<p class="mb-0"><a href="forgot_password.php" class="text-primary ms-1">Forgot Password?</a></p>
 									</div>
 									<div class="container-login100-form-btn">
-										<a href="index.html" class="login100-form-btn btn-primary">
+										<button type="submit" class="login100-form-btn btn-primary">
 											Login
-										</a>
+										</button>
 									</div>
 									
 								</form>
