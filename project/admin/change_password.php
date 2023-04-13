@@ -1,4 +1,5 @@
 <?php
+require_once("include/check_admin_login.php");
 require_once("include/css.php");
 ?>
 </head>
@@ -20,31 +21,31 @@ require_once("include/css.php");
                     <div class="container-login100">
                          <div class="row">
                               <div class="col-12 " style="width:450px;">
-                                   <form class="card shadow-none" method="post">
+                                   <form class="card shadow-none" method="post" action="submit/admin_change_password.php">
                                         <div class="card-body">
                                              <div class="text-center">
                                                   <span class="login100-form-title">
                                                        Change Password
                                                   </span>
                                              </div>
+                                             <?php
+                                             require_once("include/message.php");
+                                             ?>
                                              <div class="pt-3" id="forgot">
                                                   <div class="form-group">
                                                        <label class="form-label">Old Password</label>
-                                                       <input class="form-control" placeholder="Enter current password" type="password">
+                                                       <input class="form-control" placeholder="Enter current password" type="password" name="oldpassword" required>
                                                   </div>
                                                   <div class="form-group">
                                                        <label class="form-label">New Password</label>
-                                                       <input class="form-control" placeholder="Enter new password" type="password">
+                                                       <input class="form-control" placeholder="Enter new password" type="password" name="newpassword" required>
                                                   </div>
                                                   <div class="form-group">
                                                        <label class="form-label">Confirm Password</label>
-                                                       <input class="form-control" placeholder="Enter New  password again" type="password">
+                                                       <input class="form-control" placeholder="Enter New  password again" type="password" name="confirmpassword" required>
                                                   </div>
-                                                  <div class="submit">
-                                                       <a class="btn btn-primary d-grid" href="index.html">Save Changes</a>
-                                                  </div>
-                                                  <div class="text-center mt-4">
-                                                       <p class="text-dark mb-0">Forgot It?<a class="text-primary ms-1" href="login.php">Send me Back</a></p>
+                                                  <div class="submit d-grid">
+                                                       <button type="submit" class="btn btn-primary d-grid">Save Changes</button>
                                                   </div>
                                              </div>
                                         </div>
