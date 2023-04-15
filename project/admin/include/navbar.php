@@ -64,7 +64,7 @@
                                              <a class="dropdown-item" href="change_password.php">
                                                   <i class="dropdown-icon fe fe-settings"></i> Change Password
                                              </a>
-                                             <a class="dropdown-item" href="login.html">
+                                             <a class="dropdown-item" href="admin_logout.php">
                                                   <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
                                              </a>
                                         </div>

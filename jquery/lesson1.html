@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Example of Jquery</title>
+     <style>
+          div {
+               padding: 25px;
+               background-color: rgb(246, 246, 182);
+               border: 2px solid black;
+          }
+     </style>
+</head>
+
+<body>
+     <h1 align="center">
+          <i>Todays Headlines</i>
+     </h1>
+     <hr>
+     <div id="div1">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium similique earum! Tenetur labore
+          illum deleniti modi explicabo dicta repellendus rerum officiis exercitationem eum! Ratione ut impedit ullam
+          autem amet.
+          <button id="button1">Hide me</button>
+     </div>
+
+     <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium similique earum! Tenetur labore
+          illum deleniti modi explicabo dicta repellendus rerum officiis exercitationem eum! Ratione ut impedit ullam
+          autem amet.
+          <button id="button2">Hide me</button>
+
+     </div>
+
+     <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium similique earum! Tenetur labore
+          illum deleniti modi explicabo dicta repellendus rerum officiis exercitationem eum! Ratione ut impedit ullam
+          autem amet.
+          <button id="button3">Hide me</button>
+
+     </div>
+
+     <div>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta praesentium similique earum! Tenetur labore
+          illum deleniti modi explicabo dicta repellendus rerum officiis exercitationem eum! Ratione ut impedit ullam
+          autem amet.
+          <button id="button4">Hide me</button>
+     </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+     <script>
+          $(document).ready(function () {
+               console.log("Jquery working..");
+               $("div").click(function () {
+                    console.log("div 1 clicked ");
+                    $(this).hide(1000)
+               });
+          });
+     </script>
+</body>
+
+</html>

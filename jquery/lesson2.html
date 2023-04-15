@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+     <title>Document</title>
+     <style>
+          div {
+               padding: 25px;
+               border: 1px solid black;
+               border-radius: 25px;
+               width: 500px;
+               font-size: 1.5rem;
+               background-color: rgb(233, 158, 158);
+          }
+     </style>
+</head>
+
+<body>
+     <h1 align="center">
+          Example of Jquery lesson 2
+     </h1>
+     <hr>
+     <div class="animate__animated ">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt hic labore animi voluptas est non pariatur vero
+          nisi quas laborum, neque aut commodi, delectus adipisci dignissimos distinctio possimus quaerat eveniet.
+     </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+     <script>
+          $(document).ready(function () {
+               console.log("Jquery working..");
+               $("div").mouseenter(function () {
+                    console.log("mouse enter...");
+                    $(this).css('background-color', '#FFF2CC');
+                    $(this).addClass("animate__rotateIn");
+               });
+               $("div").mouseleave(function () {
+                    console.log("mouse leave..");
+                    $(this).css('background-color', 'rgb(233, 158, 158)');
+               });
+          });
+     </script>
+</body>
+
+</html>
