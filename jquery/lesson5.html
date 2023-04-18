@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Example of jquery </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+  <h1 align="center">
+    Example of fade method in Jquery
+  </h1>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="card">
+          <div class="card-header bg-danger text-white h3">Example of fade method</div>
+          <div class="card-body">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime a, laborum vero deserunt quasi et
+              distinctio explicabo error autem totam ullam fuga. Quis consequuntur a asperiores quisquam nesciunt minima
+              eligendi hic dolore perspiciatis provident mollitia, porro itaque, architecto cumque repellendus
+              doloremque iusto distinctio? Suscipit quam, fuga explicabo autem porro dolore.
+            </p>
+          </div>
+          <div class="card-footer text-end">
+            <button class="btn btn-primary" id="fadein">Fade in </button>
+            <button class="btn btn-warning" id="fadeout">Fade Out </button>
+            <button class="btn btn-success" id="fadetoggle">Fade Toggle </button>
+            <button class="btn btn-secondary" id="fadeto">Fade To </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      console.log("Jquery working..");
+      $("#fadein").click(function () {
+        $('p').fadeIn();
+      });
+      $("#fadeout").click(function () {
+        $('p').fadeOut();
+      });
+      $("#fadetoggle").click(function(){
+        $('p').fadeToggle(2000);
+      });
+      $("#fadeto").click(function(){
+        $('p').fadeTo(1000,0.5);
+      });
+    });
+  </script>
+</body>
+
+</html>
