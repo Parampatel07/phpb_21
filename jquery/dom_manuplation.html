@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Bootstrap demo</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+     <div class="container mt-5">
+          <div class="row">
+               <div class="col-12">
+                    <div class="card mt-5 shadow">
+                         <div class="card-header bg-danger text-white h3">Crud demo</div>
+                         <div class="card-body">
+                              <form action="insert_employee.php" method="post">
+                                   <div class="form-group my-2">
+                                        <label for="" class="form-label">Enter your name </label>
+                                        <input type="text" name="name" placeholder="Enter your name" id="name"
+                                             class="form-control" required>
+                                   </div>
+                                   <div class="form-group my-2">
+                                        <label for="" class="form-label">Enter your Email </label>
+                                        <input type="email" name="email" placeholder="Enter your email" id="email"
+                                             class="form-control" required>
+                                   </div>
+                                   <div class="form-group my-2">
+                                        <label for="" class="form-label">Select date of joining </label>
+                                        <input type="date" name="doj" placeholder="Enter your doj" id="date"
+                                             class="form-control" required>
+                                   </div>
+                                   <div class="form-group my-2">
+                                        <label for="" class="form-label">Select Gender </label>
+                                        <br>
+                                        <input type="radio" class="form-radio" name="gender" value="0">Female</input>
+                                        <input type="radio" class="form-radio" name="gender" value="1">Male</input>
+                                   </div>
+                                   <div class="text-end">
+                                        <input type="button" id="submit" value="Submit" class="btn btn-success">
+                                        <input type="reset" value="Clear all" class="btn btn-danger">
+                                   </div>
+                              </form>
+                         </div>
+                    </div>
+               </div>
+          </div>
+          <div class="row">
+               <div class="col-12">
+                    <div class="card mt-5 shadow">
+                         <div class="card-header bg-primary text-white h3">View Data</div>
+                         <div class="card-body">
+                              <table id="example" class="display table table-striped table-hover table-bordered "
+                                   style="width:100%">
+                                   <thead>
+                                        <tr>
+                                             <th>Name</th>
+                                             <th>Email</th>
+                                             <th>Gender</th>
+                                             <th>Date of joining</th>
+                                             <th>Operations</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody class="mytable">
+                                        <tr>
+                                             <td>Param</td>
+                                             <td>iamparam102@gmail.com</td>
+                                             <td>Male</td>
+                                             <td>2004-02-10</td>
+                                             <td>
+                                                  <button class="edit_row"> <img src="../php/images/edit.png"
+                                                            style="height:40px;" alt=""> </button>
+                                                  <button class="delete_row"> <img src="../php/images/delete.png"
+                                                            style="height:40px;" alt=""> </button>
+                                             </td>
+                                        </tr>
+                              </table>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+          crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+     <script>
+          $(document).ready(function () {
+               $('#example').DataTable();
+          });
+     </script>
+     <script>
+          $(document).ready(function () {
+               console.log("Jquery Working...");
+                    $('.delete_row').click(function () {
+                         console.log("delete row clicked");
+                         $(this).parent().parent().hide(2000);
+                    });
+                    $('.edit_row').click(function () {
+                         console.log("edit button clicked ");
+                         //you can also use html() for same 
+                         var name = $(this).parent().parent().find("td").eq(0).text();
+                         var email = $(this).parent().parent().find("td").eq(1).text();
+                         var gender = $(this).parent().parent().find("td").eq(2).text();
+                         var date = $(this).parent().parent().find("td").eq(3).text();
+                         console.log(name);
+                         console.log(email);
+                         console.log(gender);
+                         console.log(date);
+                         $("#name").val(name);
+                         $("#email").val(email);
+                         $("#date").val(date);
+                         if (gender == "Female") {
+                              console.log("this is female");
+                              console.log($("input[name='gender'][value=0]"));
+                              $("input[name='gender'][value=0]").prop("checked", true);
+                         }
+                         else {
+                              console.log("this is male");
+                              console.log($("input[name='gender'][value=1]"));
+                              $("input[name='gender'][value=1]").prop("checked", true);
+                         }
+                         $("#submit").val("Update");
+                    });
+               $("#submit").click(function () {
+                    var text = $(this).val();
+                    console.log(text);
+                    if (text == "Submit") {
+                         console.log("Submit Clicked ");
+                         var name = $('#name').val();
+                         var email = $('#email').val();
+                         var date = $('#date').val();
+                         var gender = $("input[name='gender']:checked").val();
+                         console.log(gender);
+                         console.log("the name is " + name + " email is " + email + " date of joining is " + date + "gender is " + gender);
+                         // console.log($("#name").val());
+                         if (gender == 0) {
+                              gender = "Female";
+                         }
+                         else {
+                              gender = "Male";
+                         }
+                         var tr = `<tr>
+                              <td>${name}</td>
+                              <td>${email}</td>
+                              <td>${gender}</td>
+                              <td>${date}</td>
+                              <td>
+                                   <button class="edit_row">
+                                         <img src="../php/images/edit.png" style="height:40px;" alt=""> 
+                                   </button>
+                                   <button class="delete_row">
+                                         <img src="../php/images/delete.png" style="height:40px;" alt="">
+                                   </button>
+                              </td>
+                         </tr>`;
+                         console.log(tr);
+                         $(".mytable").append(tr);
+
+                    }
+                    else
+                    {
+                         
+                    }
+               });
+          });
+     </script>
+</body>
+
+</html>
