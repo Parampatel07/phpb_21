@@ -65,18 +65,17 @@
                                         </tr>
                                    </thead>
                                    <tbody class="mytable">
-                                        <tr>
+                                        <tr style="display:none;">
                                              <td>Param</td>
                                              <td>iamparam102@gmail.com</td>
                                              <td>Male</td>
                                              <td>2004-02-10</td>
                                              <td>
-                                                  <button class="edit_row"> <img src="../php/images/edit.png"
-                                                            style="height:40px;" alt=""> </button>
-                                                  <button class="delete_row"> <img src="../php/images/delete.png"
-                                                            style="height:40px;" alt=""> </button>
+                                                  <button class="edit_row" type="button"> Edit </button>
+                                                  <button class="delete_row" type="button"> Delete </button>
                                              </td>
                                         </tr>
+                                   </tbody>
                               </table>
                          </div>
                     </div>
@@ -96,36 +95,8 @@
      <script>
           $(document).ready(function () {
                console.log("Jquery Working...");
-                    $('.delete_row').click(function () {
-                         console.log("delete row clicked");
-                         $(this).parent().parent().hide(2000);
-                    });
-                    $('.edit_row').click(function () {
-                         console.log("edit button clicked ");
-                         //you can also use html() for same 
-                         var name = $(this).parent().parent().find("td").eq(0).text();
-                         var email = $(this).parent().parent().find("td").eq(1).text();
-                         var gender = $(this).parent().parent().find("td").eq(2).text();
-                         var date = $(this).parent().parent().find("td").eq(3).text();
-                         console.log(name);
-                         console.log(email);
-                         console.log(gender);
-                         console.log(date);
-                         $("#name").val(name);
-                         $("#email").val(email);
-                         $("#date").val(date);
-                         if (gender == "Female") {
-                              console.log("this is female");
-                              console.log($("input[name='gender'][value=0]"));
-                              $("input[name='gender'][value=0]").prop("checked", true);
-                         }
-                         else {
-                              console.log("this is male");
-                              console.log($("input[name='gender'][value=1]"));
-                              $("input[name='gender'][value=1]").prop("checked", true);
-                         }
-                         $("#submit").val("Update");
-                    });
+               var count = 1;
+               var id ;
                $("#submit").click(function () {
                     var text = $(this).val();
                     console.log(text);
@@ -144,27 +115,62 @@
                          else {
                               gender = "Male";
                          }
-                         var tr = `<tr>
+                         var tr = `<tr data-id='${count}'>
                               <td>${name}</td>
                               <td>${email}</td>
                               <td>${gender}</td>
                               <td>${date}</td>
                               <td>
-                                   <button class="edit_row">
-                                         <img src="../php/images/edit.png" style="height:40px;" alt=""> 
-                                   </button>
-                                   <button class="delete_row">
-                                         <img src="../php/images/delete.png" style="height:40px;" alt="">
-                                   </button>
+                                   <button class="edit_row" type="button"> Edit </button>
+                                   <button class="delete_row" type="button"> Delete </button>
                               </td>
                          </tr>`;
+                         count++;
                          console.log(tr);
                          $(".mytable").append(tr);
-
+                         $('.delete_row').click(function () {
+                              console.log("delete row clicked");
+                              $(this).parent().parent().hide(2000);
+                         });
+                         $('.edit_row').click(function () {
+                              console.log("edit button clicked ");
+                              //you can also use html() for same 
+                              var name = $(this).parent().parent().find("td").eq(0).text();
+                              var email = $(this).parent().parent().find("td").eq(1).text();
+                              var gender = $(this).parent().parent().find("td").eq(2).text();
+                              var date = $(this).parent().parent().find("td").eq(3).text();
+                              id = $(this).parent().parent().attr("data-id");
+                              console.log("this is id ",id);
+                              console.log(name);
+                              console.log(email);
+                              console.log(gender);
+                              console.log(date);
+                              $("#name").val(name);
+                              $("#email").val(email);
+                              $("#date").val(date);
+                              if (gender == "Female") {
+                                   console.log("this is female");
+                                   console.log($("input[name='gender'][value=0]"));
+                                   $("input[name='gender'][value=0]").prop("checked", true);
+                              }
+                              else {
+                                   console.log("this is male");
+                                   console.log($("input[name='gender'][value=1]"));
+                                   $("input[name='gender'][value=1]").prop("checked", true);
+                              }
+                              $("#submit").val("Update");
+                         });
                     }
-                    else
-                    {
-                         
+                    else {
+                         var name = $('#name').val();
+                         var email = $('#email').val();
+                         var date = $('#date').val();
+                         var email = $("#input[name='gender']:checked").val();
+                         var edited_tr = $(".mytable").find('tr').eq((id));
+                         console.log(edited_tr);
+                         console.log(name);
+                         console.log(edited_tr.find("td").eq(0).html(name));
+                         $("#submit").val("Submit");
                     }
                });
           });
