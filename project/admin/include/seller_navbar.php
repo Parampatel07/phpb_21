@@ -27,10 +27,10 @@
                               <a class="side-menu__item" data-bs-toggle="slide" href="seller_add_category.php"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Add Category</span></a>
                          </li>
                          <li>
-                              <a class="side-menu__item" href="view_saler.php"><i class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">Add Product</span></a>
+                              <a class="side-menu__item" href="seller_add_product.php"><i class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">Add Product</span></a>
                          </li>
                          <li>
-                              <a class="side-menu__item" href="view_user.php"><i class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">View Bill</span></a>
+                              <a class="side-menu__item" href="seller_view_bill.php"><i class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">View Bill</span></a>
                          </li>
                          <!-- <li>
                               <a class="side-menu__item" href="view_bills.php"><i class="side-menu__icon fe fe-grid"></i><span class="side-menu__label">View Bills</span></a>
