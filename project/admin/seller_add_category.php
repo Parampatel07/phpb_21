@@ -17,7 +17,6 @@ require_once("include/css.php");
                          <div class="card">
                               <div class="card-header">
                                    <h3 class="card-title">Add New Category</h3>
-
                               </div>
                               <div class="card-body">
                                    <div class="row">
@@ -77,44 +76,18 @@ require_once("include/css.php");
                                         <table class="table table-bordered text-nowrap border-bottom" id="basic-datatable">
                                              <thead>
                                                   <tr>
-                                                       <th class="wd-15p border-bottom-0">User name</th>
-                                                       <th class="wd-15p border-bottom-0">Bill date</th>
-                                                       <th class="wd-20p border-bottom-0">Mobile number</th>
-                                                       <th class="wd-20p border-bottom-0">City</th>
-                                                       <th class="wd-20p border-bottom-0">Pay Mode</th>
-                                                       <th class="wd-20p border-bottom-0">Payment Status</th>
-                                                       <th class="wd-20p border-bottom-0">Order Status</th>
-                                                       <th class="wd-20p border-bottom-0">Amount</th>
-                                                       <th class="wd-20p border-bottom-0">Operation</th>
-
+                                                       <th class="wd-15p border-bottom-0">Sr no</th>
+                                                       <th class="wd-15p border-bottom-0">Title</th>
+                                                       <th class="wd-20p border-bottom-0">Image</th>
+                                                       <th class="wd-20p border-bottom-0">Status </th>
                                                   </tr>
                                              </thead>
-                                             <tbody>
-                                                  <tr>
-                                                       <td>Bella</td>
-                                                       <td>Chloe</td>
-                                                       <td>System Developer</td>
-                                                       <td>System Developer</td>
-                                                       <td>System Developer</td>
-                                                       <td>System Developer</td>
-                                                       <td>System Developer</td>
-                                                       <td>System Developer</td>
-                                                       <td align="center">
-                                                            <h3><i class="fa fa-eye" data-bs-toggle="tooltip" title="" data-bs-original-title="View More" aria-label="fa fa-eye"></i></h3>
-                                                       </td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td>Bella</td>
-                                                       <td>Chloe</td>
-                                                       <td>System Developer</td>
-                                                       <td>System Developer</td>
-                                                       <td>System Developer</td>
-                                                       <td>System Developer</td>
-                                                       <td>System Developer</td>
-                                                       <td>System Developer</td>
-                                                       <td align="center">
-                                                            <h3><i class="fa fa-eye" data-bs-toggle="tooltip" title="" data-bs-original-title="View More" aria-label="fa fa-eye"></i></h3>
-                                                       </td>
+                                             <tbody id="mytable">
+                                                  <tr style="display: none;">
+                                                       <td></td>
+                                                       <td></td>
+                                                       <td></td>
+                                                       <td></td>
                                                   </tr>
                                              </tbody>
                                         </table>
@@ -126,6 +99,39 @@ require_once("include/css.php");
           </div>
      </div>
      </div>
+     <script>
+          $(document).ready(function() {
+               console.log("Jquery Working...");
+               var page = "ajax/get_seller_category.php";
+               var tr = ``;
+               var count=1;
+               $.get(page, function(data, status) {
+                    console.log(data);
+                    console.log(status);
+                    var my_data = JSON.parse(data);
+                    console.log(my_data);
+                    my_data.forEach(row => {
+                         if(row['islive']==0)
+                         {
+                              var status = "Live";
+                         }
+                         else
+                         {
+                              var status = "Not live";
+                         }
+                         tr += `<tr>
+                         <td>${count++}</td>
+                         <td>${row['title']}</td>
+                         <td><img src="images/category/${row['photo']}" alt="" height="50px"></td>
+                         <td> ${status} </td>
+                         </tr>`
+                    });
+                    $("#mytable").append(tr);
+
+               });
+
+          });
+     </script>
      <?php
      require_once("include/script.php");
      ?>

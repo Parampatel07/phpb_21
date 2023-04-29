@@ -44,3 +44,4 @@
      <link href="theme/assets/plugins/datatable/css/dataTables.bootstrap5.css" rel="stylesheet" />
      <link href="theme/assets/plugins/datatable/css/buttons.bootstrap5.min.css" rel="stylesheet">
      <link href="theme/assets/plugins/datatable/responsive.bootstrap5.css" rel="stylesheet" />
+     <script src="theme/assets/plugins/jquery/jquery.min.js"></script>

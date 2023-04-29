@@ -2,7 +2,6 @@
  <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
  <!-- JQUERY JS -->
- <script src="theme/assets/plugins/jquery/jquery.min.js"></script>
 
  <!-- BOOTSTRAP JS -->
  <script src="theme/assets/plugins/bootstrap/js/popper.min.js"></script>
