@@ -32,7 +32,7 @@ require_once("include/css.php");
                                                   <div class="tab-pane active show" id="tab20">
                                                        <div class="form-group">
                                                             <label class="form-label">Enter title</label>
-                                                            <input type="text" name="title" class="form-control" placeholder="Enter title for category" required>
+                                                            <input type="text" id="title" name="title" class="form-control" placeholder="Enter title for category" required>
                                                        </div>
                                                        <div class="form-group">
                                                             <label class="form-label">Enter Photo</label>
@@ -80,14 +80,28 @@ require_once("include/css.php");
                                                        <th class="wd-15p border-bottom-0">Title</th>
                                                        <th class="wd-20p border-bottom-0">Image</th>
                                                        <th class="wd-20p border-bottom-0">Status </th>
+                                                       <th class="wd-20p border-bottom-0">Operations </th>
                                                   </tr>
                                              </thead>
                                              <tbody id="mytable">
-                                                  <tr style="display: none;">
+                                                  <tr style="display:none;">
                                                        <td></td>
                                                        <td></td>
                                                        <td></td>
                                                        <td></td>
+                                                       <td class="d-flex">
+
+                                                            <h2 class="mx-3">
+                                                                 <a href="">
+                                                                      <i class="fa fa-pencil-square" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-pencil-square" aria-label="fa fa-pencil-square"></i>
+                                                                 </a>
+                                                            </h2>
+                                                            <h2>
+                                                                 <a href="">
+                                                                      <i class="fa fa-trash" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-trash" aria-label="fa fa-trash"></i>
+                                                                 </a>
+                                                            </h2>
+                                                       </td>
                                                   </tr>
                                              </tbody>
                                         </table>
@@ -104,26 +118,62 @@ require_once("include/css.php");
                console.log("Jquery Working...");
                var page = "ajax/get_seller_category.php";
                var tr = ``;
-               var count=1;
+               var count = 1;
+               $("body").on('click', '.btn_delete', function() {
+                    console.log("btn clicked ");
+                    var category_id = $(this).parent().parent().parent().attr("data-id");
+                    var page = `ajax/delete_cateogry.php?category_id=${category_id}`;
+                    if (confirm("Are you sure ?? ")) {
+                         $(this).parent().parent().parent().hide(2000);
+                         $.get(page, function(data, status) {
+                              console.log(data);
+                              if (data == 1) {
+                                   alert("Category deleted successfully ");
+                              }
+                         });
+                    }
+               });
+               $('body').on('click',".btn_edit",function(){
+                    console.log("edit button clicked ");
+                    var title = $(this).parent().parent().parent().find("td").eq(1).text();
+                    var status = $(this).parent().parent().parent().find("td").eq(3).text();
+                    var image = $(this).parent().parent().parent().find("td").eq(2).html();
+                    
+                    console.log(image.attr('src'));
+                    $("#title").val(title);
+                    if(status=="Live")
+                    {
+                         $("input[name='status'][value='0']").prop("checked",true);
+                    }
+                    else
+                    {
+                         $("input[name='status'][value='1']").prop("checked",true);
+                    }
+               });
                $.get(page, function(data, status) {
                     console.log(data);
                     console.log(status);
                     var my_data = JSON.parse(data);
                     console.log(my_data);
                     my_data.forEach(row => {
-                         if(row['islive']==0)
-                         {
+                         if (row['islive'] == 0) {
                               var status = "Live";
-                         }
-                         else
-                         {
+                         } else {
                               var status = "Not live";
                          }
-                         tr += `<tr>
+                         tr += `<tr data-id="${row['id']}">
                          <td>${count++}</td>
                          <td>${row['title']}</td>
                          <td><img src="images/category/${row['photo']}" alt="" height="50px"></td>
-                         <td> ${status} </td>
+                         <td>${status}</td>
+                         <td class="d-flex">
+                              <h2 class="mx-3">
+                                        <i class="fa fa-pencil-square btn_edit" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-pencil-square" aria-label="fa fa-pencil-square"></i>
+                                   </h2>
+                                   <h2>
+                                             <i class="fa fa-trash btn_delete" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-trash" aria-label="fa fa-trash"></i>
+                                   </h2>
+                               </td>     
                          </tr>`
                     });
                     $("#mytable").append(tr);
