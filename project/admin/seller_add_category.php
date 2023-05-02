@@ -54,7 +54,7 @@ require_once("include/css.php");
                                                             </div>
                                                        </div>
                                                        <div class="text-end">
-                                                            <button type="submit" class="btn btn-primary">Save Category</button>
+                                                            <button type="submit" class="btn btn-primary" id="submit">Save Category</button>
                                                             <button type="reset" class="btn btn-danger">Clear all</button>
                                                        </div>
                                                   </div>
@@ -119,6 +119,7 @@ require_once("include/css.php");
                var page = "ajax/get_seller_category.php";
                var tr = ``;
                var count = 1;
+               var edit_id;
                $("body").on('click', '.btn_delete', function() {
                     console.log("btn clicked ");
                     var category_id = $(this).parent().parent().parent().attr("data-id");
@@ -133,22 +134,21 @@ require_once("include/css.php");
                          });
                     }
                });
-               $('body').on('click',".btn_edit",function(){
+               $('body').on('click', ".btn_edit", function() {
                     console.log("edit button clicked ");
                     var title = $(this).parent().parent().parent().find("td").eq(1).text();
                     var status = $(this).parent().parent().parent().find("td").eq(3).text();
-                    var image = $(this).parent().parent().parent().find("td").eq(2).html();
-                    
-                    console.log(image.attr('src'));
+                    // var image = $(this).parent().parent().parent().find("td").eq(2).html();
+                    edit_id = $(this).parent().parent().parent().attr("data-id");
+                    // console.log(image.attr('src'));
                     $("#title").val(title);
-                    if(status=="Live")
-                    {
-                         $("input[name='status'][value='0']").prop("checked",true);
+                    if (status == "Live") {
+                         $("input[name='status'][value='0']").prop("checked", true);
+                    } else {
+                         $("input[name='status'][value='1']").prop("checked", true);
                     }
-                    else
-                    {
-                         $("input[name='status'][value='1']").prop("checked",true);
-                    }
+                    $("#submit").html("Update Category");
+                    $("#submit").attr("type", "button");
                });
                $.get(page, function(data, status) {
                     console.log(data);
@@ -179,7 +179,37 @@ require_once("include/css.php");
                     $("#mytable").append(tr);
 
                });
-
+               $("#submit").click(function() {
+                    if ($("#submit").html()=="Update Category") {
+                         var title = $("#title").val();
+                         var status = parseInt($("input[name='status']:checked").val());
+                         var page = "ajax/update_category.php";
+                         var my_data = {
+                              "title": title,
+                              "status": status,
+                              "id": edit_id
+                         }
+                         $.post(page, my_data, function(data, s) {
+                              console.log(data);
+                              if (data == 1) {
+                                   alert("Category updated successfully ");
+                                   var tr = $(`tr[data-id='${edit_id}']`);
+                                   tr.find("td").eq(1).text(title);
+                                   console.log("this is status ", status);
+                                   if (status == 0) {
+                                        tr.find("td").eq(3).text("Live");
+                                   } else if (status == 1) {
+                                        tr.find("td").eq(3).text("Not Live");
+                                   }
+                                   data = " ";
+                              }
+                         });
+                         $("#title").val(" ");
+                         $("input[name='status']").prop("checked", false);
+                         $("#submit").html("Add Category");
+                         $("#submit").attr("type", "submit");
+                    }
+               });
           });
      </script>
      <?php

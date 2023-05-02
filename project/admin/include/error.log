@@ -6,3 +6,5 @@
  Error Code42000 ErrorDetail You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'admin where email = ?' at line 1 on occured at Tue11-04-202306:52:37PM in file connection.php at lineno 0
  Error Code42000 ErrorDetail You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'admin where email = 'iamparam102@gmail.com'' at line 1 on occured at Tue11-04-202306:53:50PM in file connection.php at lineno 0
  Error Code42000 ErrorDetail You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'admin where email = 'iamparam102@gmail.com'' at line 1 on occured at Tue11-04-202306:54:04PM in file connection.php at lineno 0
+ 
+ Error Code42S22 ErrorDetail Unknown column 'status' in 'field list' on occured at Tue02-05-202306:41:07PM in file connection.php at lineno 0
