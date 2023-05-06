@@ -1,4 +1,7 @@
 <?php
+session_start();
+$_SESSION['seller_id'] = 1;
+require_once("include/connection.php");
 require_once("include/css.php");
 ?>
 </head>
@@ -7,6 +10,7 @@ require_once("include/css.php");
      <?php
      require_once("include/seller_navbar.php");
      ?>
+
      <!--app-content open-->
      <div class="app-content">
           <div class="side-app">
@@ -36,10 +40,29 @@ require_once("include/css.php");
                                                        </div>
                                                   </div>
                                                   <div class="col-4">
+                                                       <?php
+                                                       try {
+                                                            $sql = "Select title , id from category where saleseman_id = ? and isdeleted = 0";
+                                                            $stat = $db->prepare($sql);
+                                                            $stat->bindparam(1, $_SESSION['seller_id']);
+                                                            $stat->setFetchMode(PDO::FETCH_ASSOC);
+                                                            $stat->execute();
+                                                            $table = $stat->fetchAll();
+                                                            // var_dump($table);
+                                                       } catch (PDOException $error) {
+                                                            LogError($error);
+                                                       }
+                                                       ?>
                                                        <label for="" class="form-label">Select Category</label>
                                                        <select name="category" class="form-select">
-                                                            <option value="0">Abc</option>
-                                                            <option value="1">zxy</option>
+                                                            <?php
+                                                            foreach ($table as $row) {
+                                                            ?>
+                                                                 <option value="<?php echo $row['id'] ?>"><?php echo $row['title'] ?></option>
+                                                            <?php
+                                                            }
+                                                            ?>
+
                                                        </select>
                                                   </div>
                                                   <div class="col-4">

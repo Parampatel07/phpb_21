@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once("admin/include/connection.php");
 require_once("include/css.php");
 ?>
 </head>
@@ -23,80 +25,36 @@ require_once("include/css.php");
                <div class="container">
                     <div class="product-area pb--50">
                          <div class="row row-cols-xl-3 row-cols-md-2 row-cols-1 row--15">
-                              <div class="col">
-                                   <div class="axil-product-list product-list-style-2">
-                                        <div class="thumbnail">
-                                             <a href="category.php">
-                                                  <img data-sal="zoom-in" data-sal-delay="100" data-sal-duration="1500" src="theme/assets/images/product/nft/product-18.jpg" alt="NFT">
-                                             </a>
-                                        </div>
-                                        <div class="product-content">
-                                             <h6 class="product-title"><a href="category.php">Total product : 40 </a></h6>
-                                             <div class="product-price-variant">
-                                                  <span class="price current-price">Seller name</span><span class="verified-icon"><i class="fas fa-badge-check"></i></span>
-                                             </div>
-                                             <div class="product-cart">
-                                                  <a href="category.php" class="cart-btn">View Category</a>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="axil-product-list product-list-style-2">
-                                        <div class="thumbnail">
-                                             <a href="category.php">
-                                                  <img data-sal="zoom-in" data-sal-delay="100" data-sal-duration="1500" src="theme/assets/images/product/nft/product-18.jpg" alt="NFT">
-                                             </a>
-                                        </div>
-                                        <div class="product-content">
-                                             <h6 class="product-title"><a href="category.php">Total product : 40 </a></h6>
-                                             <div class="product-price-variant">
-                                                  <span class="price current-price">Seller name</span><span class="verified-icon"><i class="fas fa-badge-check"></i></span>
-                                             </div>
-                                             <div class="product-cart">
-                                                  <a href="category.php" class="cart-btn">View Category</a>
+                              <?php
+                              try {
+                                   $sql = "Select id,fullname,title from salesman where isdeleted = 1";
+                                   $stat = $db->prepare($sql);
+                                   $stat->setFetchMode(PDO::FETCH_ASSOC);
+                                   $stat->execute();
+                                   $table = $stat->fetchAll();
+                                   // var_dump($table);
+                              } catch (PDOException $error) {
+                                   LogError($error);
+                              }
+                              foreach ($table as $row) {
+                              ?>
+                                   <div class="col">
+                                        <div class="axil-product-list product-list-style-2">
+                                             <div class="product-content">
+                                                  <h6 class="product-title"><a href="category.php?id=<?php echo $row['id']; ?>"><?php echo $row['title'] ?> </a></h6>
+                                                  <div class="product-price-variant">
+                                                       <span class="price current-price"><?php echo $row['fullname'] ?></span><span class="verified-icon"><i class="fas fa-badge-check"></i></span>
+                                                  </div>
+                                                  <div class="product-cart">
+                                                       <a href="category.php?id=<?php echo $row['id']; ?>" class="cart-btn">View Category</a>
+                                                  </div>
                                              </div>
                                         </div>
                                    </div>
-                              </div>
-                              <div class="col">
-                                   <div class="axil-product-list product-list-style-2">
-                                        <div class="thumbnail">
-                                             <a href="category.php">
-                                                  <img data-sal="zoom-in" data-sal-delay="100" data-sal-duration="1500" src="theme/assets/images/product/nft/product-18.jpg" alt="NFT">
-                                             </a>
-                                        </div>
-                                        <div class="product-content">
-                                             <h6 class="product-title"><a href="category.php">Total product : 40 </a></h6>
-                                             <div class="product-price-variant">
-                                                  <span class="price current-price">Seller name</span><span class="verified-icon"><i class="fas fa-badge-check"></i></span>
-                                             </div>
-                                             <div class="product-cart">
-                                                  <a href="category.php" class="cart-btn">View Category</a>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              <div class="col">
-                                   <div class="axil-product-list product-list-style-2">
-                                        <div class="thumbnail">
-                                             <a href="category.php">
-                                                  <img data-sal="zoom-in" data-sal-delay="100" data-sal-duration="1500" src="theme/assets/images/product/nft/product-18.jpg" alt="NFT">
-                                             </a>
-                                        </div>
-                                        <div class="product-content">
-                                             <h6 class="product-title"><a href="category.php">Total product : 40 </a></h6>
-                                             <div class="product-price-variant">
-                                                  <span class="price current-price">Seller name</span><span class="verified-icon"><i class="fas fa-badge-check"></i></span>
-                                             </div>
-                                             <div class="product-cart">
-                                                  <a href="category.php" class="cart-btn">View Category</a>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                              
-                              
+                              <?php
+                              }
+                              ?>
+
                          </div>
                     </div>
                </div>

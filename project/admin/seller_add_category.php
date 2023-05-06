@@ -37,7 +37,8 @@ require_once("include/css.php");
                                                        <div class="form-group">
                                                             <label class="form-label">Enter Photo</label>
                                                             <div class="input-group">
-                                                                 <input type="file" name="image" class="form-control" required>
+                                                                 <input type="file" name="image" id="image" class="form-control">
+                                                                 <label for="" id="image_label"></label>
                                                             </div>
                                                        </div>
                                                        <div class="row">
@@ -120,6 +121,7 @@ require_once("include/css.php");
                var tr = ``;
                var count = 1;
                var edit_id;
+
                $("body").on('click', '.btn_delete', function() {
                     console.log("btn clicked ");
                     var category_id = $(this).parent().parent().parent().attr("data-id");
@@ -147,7 +149,7 @@ require_once("include/css.php");
                     } else {
                          $("input[name='status'][value='1']").prop("checked", true);
                     }
-                    $("#submit").html("Update Category");
+                    $("#submit").text("Update Category");
                     $("#submit").attr("type", "button");
                });
                $.get(page, function(data, status) {
@@ -180,7 +182,7 @@ require_once("include/css.php");
 
                });
                $("#submit").click(function() {
-                    if ($("#submit").html()=="Update Category") {
+                    if ($("#submit").html() == "Update Category") {
                          var title = $("#title").val();
                          var status = parseInt($("input[name='status']:checked").val());
                          var page = "ajax/update_category.php";
@@ -192,7 +194,7 @@ require_once("include/css.php");
                          $.post(page, my_data, function(data, s) {
                               console.log(data);
                               if (data == 1) {
-                                   alert("Category updated successfully ");
+                                   alert("Category updated successfully ")
                                    var tr = $(`tr[data-id='${edit_id}']`);
                                    tr.find("td").eq(1).text(title);
                                    console.log("this is status ", status);
@@ -202,12 +204,19 @@ require_once("include/css.php");
                                         tr.find("td").eq(3).text("Not Live");
                                    }
                                    data = " ";
+                                   if ($("#image").val() == " " || $("#image").val() == null) {
+                                        $("#image_label").text("Please Select a file ");
+                                   }
                               }
+                         }).then(function() {
+                              $("#submit").html("Save Category");
+                              $("#submit").attr("type", "Submit");
                          });
                          $("#title").val(" ");
+                         // $("#image").val(" ");
                          $("input[name='status']").prop("checked", false);
-                         $("#submit").html("Add Category");
-                         $("#submit").attr("type", "submit");
+
+                         console.log($("#submit"));
                     }
                });
           });

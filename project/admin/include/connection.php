@@ -53,7 +53,7 @@ function FetchRow($sql,$data=null)
     try 
     {
         $statement = $GLOBALS['db']->prepare($sql);
-        $statement->setFetchMode(PDO::FETCH_BOTH);
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
         if($data==null)
             $statement->execute();
         else 
